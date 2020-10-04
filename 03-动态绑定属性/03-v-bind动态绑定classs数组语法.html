@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--表示字符串-->
+    <h2 class="title" :class="['active','line']">{{message}}</h2>
+    <!--变量执行的-->
+    <h2 class="title" :class="[activebl,linebl]">{{message}}</h2>
+    <!--使用methods-->
+    <h2 class="title" :class="getClasses()">{{message}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            message: '您好啊！',
+            activebl: 'activeblDemo',
+            linebl: 'lineblDemo',
+        },
+        methods: {
+            getClasses(){
+                return [this.activebl, this.linebl]
+            }
+        }
+    })
+</script>
+</body>
+</html>

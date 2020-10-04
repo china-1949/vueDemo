@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <h2>当前计数：{{counter}}</h2>
+    <!--<button v-on:click="counter++">+</button>-->
+    <!--<button @click="counter++">+</button>-->
+    <!--<button v-on:click="counter&#45;&#45;">-</button>-->
+    <!--v-on 缩写为@-->
+    <button @click="inc">+</button>
+
+    <button @click="dec">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const obj ={  //data定义的对象
+        counter: 0,
+        message: 'abc',
+    }
+    // hock :钩子函数（回调意思）
+    const  app = new Vue({
+        el: '#app',
+        data: obj,
+        methods: {
+            inc(){
+                this.counter=this.counter+1
+            },
+            dec(){
+                this.counter=this.counter-1
+            }
+        },
+        beforeCreate(){
+            console.log('beforeCreated')
+        },
+        created(){ //网络请求，再放进data
+            console.log('created')
+
+        },
+        beforeMount(){
+            console.log(' beforeMount')
+        },
+        mounted(){ //初始化页面完成后
+            console.log('mounted')
+        },
+        beforeUpdate(){
+            console.log('beforeUpdate')
+        },
+        updated(){
+            console.log('updated')
+        },
+        beforeDestroy(){
+            console.log('beforeDestroy')
+        },
+        destroyed(){
+            console.log('destroyed')
+        }
+
+    })
+
+</script>
+</body>
+</html>

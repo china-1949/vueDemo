@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <!--不可以使用mastache语法-->
+    <!--<img src="{{imgURL}}" alt=""/>-->
+    <!--v-bind缩写为：-->
+    <img v-bind:src="imgURL" alt=""/>
+    <a :href="aHref">百度一下</a>
+
+    <!--语法糖写法-->
+    <img :src="imgURL" alt=""/>
+    <a :href="aHref">百度一下</a>
+
+    <div class=""></div>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            message: '您好啊！',
+            imgURL: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec' +
+                '=1601751628683&di=4f6bc34186e51a0b796a86a06266f0ce&imgtype=0&src=http%3A%2F%2Fa4.att.hudong.com%2F52%2F52%2F01200000169026136208529565374.jpg',
+            aHref: 'http://www.baidu.com'
+        }
+    })
+</script>
+</body>
+</html>

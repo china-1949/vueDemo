@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .iscolor{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<!-- 作业需求：点击列表中的哪一项，那么该项的文字变成红色 -->
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in movies" :class="{iscolor:index==mark}"  :key="index" @click="getcolor(index)">{{item}} ---{{index}}</li>
+    </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            message: '您好啊！',
+            movies: ['sadas','sdfsf','dsfdsf','sdfsf','fsdf'],
+            mark: -1,
+        },
+        methods:{
+            getcolor(index){
+                if(index == this.mark){
+                    this.mark = -1  //if判断，实现点击一项时变色，再次点击取消变色
+                }else {
+                    this.mark = index
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

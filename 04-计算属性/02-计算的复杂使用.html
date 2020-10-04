@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+   <h2>总价格：{{totalPrice}}</h2>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            books: [
+                {id: 110, name: 'dfsd', price: 179},
+                {id: 111, name: 'dsfdsf', price: 119},
+                {id: 112, name: 'dsfsd', price: 119},
+                {id: 113, name: 'fgdf', price: 169},
+                {id: 114, name: 'jghj', price: 149},
+                {id: 115, name: 'jghjgh', price: 139},
+            ]
+
+        },
+        methods: {
+
+        },
+        computed: {
+            //fileter/map/reduce
+            totalPrice(){
+                // debugger
+                // let result = 0
+                // this.books.forEach((book,index)=>{
+                //     result +=book.price
+                // })
+                // return result
+
+                // let result = 0
+                // this.books.map((item)=>{
+                //     debugger
+                //     console.log(item.price)
+                //     result =result+ item.price
+                // })
+                // return result
+
+                //es6语法
+                let result = 0
+                for( let book of this.books){
+                    result +=book.price
+                }
+                return result
+
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

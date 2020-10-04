@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .active{
+            color: red;
+        }
+        .line{
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <h2 class="active">{{message}}</h2>
+    <!--没绑定报错了-->
+    <!--<h2 :class="active">{{message}}</h2>-->
+    <h2 :class="activeDemo">{{message}}</h2>
+
+    <!--通过对象方式，控制class作用与否-->
+    <!--<h2 v-bind:class="{key1:value1, key2:value2}">{{message}}</h2>-->
+    <!--<h2 v-bind:class="{类名1:boolean,类名2:boolean}">{{message}}</h2>-->
+    <!--class具有合并作用-->
+    <h2 class="tittle" v-bind:class="{active: isActive, line: isLine}">{{message}}</h2>
+    <h2 class="tittle" v-bind:class="getClasses()">{{message}}</h2>
+    <!--按钮监听函数()被省了-->
+    <button @click="btnClick">按钮</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const  app = new Vue({
+        el: '#app',
+        data: {
+            message: '您好啊！',
+            activeDemo: 'active',
+            isActive: true,
+            isLine: true
+
+        },
+        methods: {
+            btnClick(){
+                this.isLine = !this.isLine;
+            },
+            getClasses(){
+                return {active: this.isActive, line: this.isLine}
+            }
+        }
+    })
+</script>
+</body>
+</html>

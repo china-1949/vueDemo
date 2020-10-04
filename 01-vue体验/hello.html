@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">{{message}}
+    <h1>{{message}}</h1>
+    <h2>{{name}}</h2>
+</div><!--交给vue进行管理-->
+<div>{{message}}</div>
+<script src="../js/vue.js"></script>
+<script>
+    //let(es6定义变量)  /const(es6定义常量)  //var在es6中没有变量的作用域(缺陷)
+    let name ='why' //const name ='why'
+    name = 'chens'
+
+    const app = new Vue({
+        el: '#app', //用于挂载要管理的元素
+        data:{ //定义数据
+            message:'您好啊！陈松',
+            name: '陈松'
+        }
+
+    })
+
+    //和原始js命令式编程不同 ，vue为声明式编程
+</script>
+</body>
+</html>
